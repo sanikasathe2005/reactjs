@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Child from "./Child";
 import Hobby from "./Hobby";
 
 function App() {
+  // Correctly calling the useEffect hook
+  useEffect(() => {
+    console.log("hello world");
+  }, []);
+
   const [name, setName] = useState("sanika sathe");
   const [count, setCount] = useState(0);
   const [users, setUsers] = useState({ name: "sanika", age: 21 });
   const [tasks, setTasks] = useState(["task1", "task2", "task3"]);
   const [show, setShow] = useState(false);
-      let hobby=["sing","dance","travel"];
+  let hobby = ["sing", "dance", "travel"];
 
   return (
     <>
@@ -31,7 +36,6 @@ function App() {
         {show ? "Hide" : "Show"} Details
       </button>
 
-      {/* Passing multiple props to your imported Child component */}
       <Child name="Sanika" age={21} />
       <Hobby h={hobby[0]}/>
     </>
